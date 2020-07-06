@@ -1,0 +1,35 @@
+//Creating the file: quotes_db
+CREATE DATABASE IF NOT EXISTS quotes_db;
+
+// Switching to use database: quote_db
+USE quotes_db;
+
+// We're creating a new table with the same name with updated info
+DROP TABLE IF EXISTS quotes;
+
+//Creating a table and assigning column names with data types
+CREATE TABLE IF NOT EXISTS quotes(
+// the first group of characters are the column names: ex) id, author_first_name, author_last_name, quote
+     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+     author_first_name VARCHAR(100) DEFAULT 'NONE',
+     author_last_name  VARCHAR(100) NOT NULL ,
+     quote TEXT NOT NULL,
+     // This is not a cloumn, we're just stating that we want our id to be the primary key
+     PRIMARY KEY (id)
+);
+
+to run from command line from intelliJ:
+
+cd IdeaProjects/
+cd database-exercises
+mysql -u root -p < quotes_migration.sql
+input pswd
+then enter mysql: mysql -u root -p;
+SHOW TABLES;
+USE quotes_db;
+DESCRIBE quotes;
+
+
+
+
+
