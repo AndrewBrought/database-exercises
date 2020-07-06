@@ -29,7 +29,11 @@ SHOW TABLES;
 USE quotes_db;
 DESCRIBE quotes;
 
-
-
+How to use intelliJ to run mySQL:
+system pwd;
+login to mysql
+source albums_migration.sql;
+In Terminal:
+mysql -u codeup_test_user -p < albums_migration.sql
 
 
