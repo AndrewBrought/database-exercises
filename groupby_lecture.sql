@@ -93,6 +93,10 @@ GROUP BY gender, birth_date ORDER BY birth_date;
 # Select the first and last hire date for each first name
 SELECT first_name, MIN(hire_date) AS 'First Hired', MAX(hire_date) AS 'Last Hired' FROM employees GROUP BY first_name;
 
+SELECT last_name
+FROM employees
+WHERE last_name LIKE 'e%e'
+GROUP BY last_name;
 
 SELECT last_name
 FROM employees
