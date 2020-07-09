@@ -36,7 +36,7 @@ ORDER BY last_name DESC;
 SELECT *
 FROM employees
 WHERE birth_date LIKE '%12-25' AND hire_date BETWEEN '1990-01-01' AND '1999-12-31'
-ORDER BY hire_date DESC, birth_date;
+ORDER BY birth_date, hire_date DESC;
 
 # SELECT * FROM employees LIMIT 1;
 
