@@ -41,6 +41,6 @@ ORDER BY birth_date, hire_date DESC;
 # SELECT * FROM employees LIMIT 1;
 
 # Come back to this one
-# SELECT *
-# FROM employees
-# WHERE last_name LIKE '%q%' AND last_name != 'qu';
+SELECT *
+FROM employees
+WHERE last_name LIKE '%q%' AND last_name NOT LIKE  '%qu%';
