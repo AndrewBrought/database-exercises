@@ -121,6 +121,13 @@ JOIN titles on titles.emp_no = dept_emp.emp_no
 WHERE departments.dept_name = 'Customer Service' AND titles.to_date = '9999-01-01' AND dept_emp.to_date = '9999-01-01'
 GROUP BY `Title`;
 
+# === 2nd walk through ===
+SELECT titles.title AS 'Title', COUNT(dept_emp.emp_no) AS Count
+FROM titles
+JOIN dept_emp ON titles.emp_no = dept_emp.emp_no
+JOIN departments ON dept_emp.dept_no = departments.dept_no
+WHERE departments.dept_name = 'Customer Service' AND titles.to_date LIKE '9999%' AND dept_emp.to_date LIKE '9999%'
+GROUP BY `Title`;
 
 # SELECT CONCAT(first_name, ' ', last_name) AS 'Department Manager', departments.dept_name AS 'Department Name', employees.salaries.salary AS 'Salary'
 # FROM employees
@@ -146,3 +153,11 @@ WHERE dm.to_date LIKE '9999%' AND salaries.to_date LIKE '9999%'
 ORDER BY departments.dept_name;
 
 
+#  BONUS
+SELECT CONCAT(employees.first_name, ' ', employees.last_name) As 'Employee Name', d.dept_name AS 'Department Name', CONCAT(emp2.first_name, ' ', emp2.last_name)
+FROM employees
+JOIN dept_emp de on employees.emp_no = de.emp_no
+JOIN departments d on de.dept_no = d.dept_no
+JOIN dept_manager dm on d.dept_no = dm.dept_no
+JOIN employees emp2 ON dm.emp_no = emp2.emp_no
+WHERE de.to_date LIKE '9999%' AND dm.to_date LIKE '9999%';
