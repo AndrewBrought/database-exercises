@@ -1,0 +1,8 @@
+================================= DATABASE DESIGN MINI EXERCISE 1
+For each scenario, select the best relationship type and why:
+  - in a dating app: users and user_profiles
+  - on a health insurance portal: users and claims
+  - in a blog application: users and posts
+  - in a social media app: users and groups
+  - in an app for professional networking: businesses and addresses
+  - in a dog walking app: pet_records and pet_owners
