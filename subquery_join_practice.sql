@@ -81,20 +81,28 @@ GROUP BY dept_name;
 -- what is the average salary for each department?
 SELECT dept_name AS 'Department', AVG(s.salary) AS 'Salary'
 FROM departments
-         JOIN dept_manager on dept_manager.dept_no = departments.dept_no
-         JOIN employees AS e on e.emp_no = dept_manager.emp_no
-         JOIN salaries AS s on e.emp_no = s.emp_no
-WHERE s.emp_no IN (
+JOIN dept_emp AS de on de.dept_no = departments.dept_no
+JOIN salaries AS s on de.emp_no = s.emp_no
+WHERE de.emp_no IN (
     SELECT emp_no
-    FROM dept_manager
+    FROM salaries
     WHERE to_date > NOW()
 )
-GROUP BY dept_name, CONCAT(first_name, ' ', last_name)
-ORDER BY dept_name;
+GROUP BY dept_name;
+
 
 
 -- what was the average salary in the 80s? By department?
-
+SELECT dept_name AS 'Department', AVG(s.salary) AS 'Salary'
+FROM departments
+         JOIN dept_emp AS de on de.dept_no = departments.dept_no
+         JOIN salaries AS s on de.emp_no = s.emp_no
+WHERE de.emp_no IN (
+    SELECT emp_no
+    FROM salaries
+    WHERE s.from_date > '1979-12-31' AND s.to_date < '1990-01-01'
+)
+GROUP BY dept_name;
 
 
 
